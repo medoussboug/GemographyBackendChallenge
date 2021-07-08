@@ -12,7 +12,7 @@ class TrendingReposMapperTest {
     private TrendingReposMapper trendingReposMapper = new TrendingReposMapper();
 
     @Test
-    void map_WhenGettingTrendingReposDTO_ThenMapItsDataToLanguagesTrendingReposDTO() {
+    void map_WhenGettingTrendingReposDTO_ThenMapDataToLanguagesTrendingReposDTO() {
         List<Item> items = new ArrayList<>();
         items.add(new Item(1234, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "C",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
         items.add(new Item(124, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "C",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
