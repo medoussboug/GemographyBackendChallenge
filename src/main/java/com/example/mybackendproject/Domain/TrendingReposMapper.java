@@ -22,7 +22,7 @@ public class TrendingReposMapper {
     private List<String> getTrendingReposLanguages(TrendingReposDTO trendingRepos) {
         List<String> languagesList;
         Set<String> temp = new HashSet<>();
-        trendingRepos.itemDTOS.forEach(item -> temp.add(item.language));
+        trendingRepos.items.forEach(item -> temp.add(item.language));
         languagesList = new ArrayList<>(temp);
         languagesList.remove(null);
         return languagesList;
@@ -30,10 +30,10 @@ public class TrendingReposMapper {
 
     private Integer calculateNumberOfUsageOfLanguage(String language, TrendingReposDTO trendingRepos) {
         int count = 0;
-        List<ItemDTO> itemDTOS = trendingRepos.itemDTOS;
-        for (ItemDTO itemDTO
-                : itemDTOS) {
-            if (language.equals(itemDTO.language)) {
+        List<Item> items = trendingRepos.items;
+        for (Item item
+                : items) {
+            if (language.equals(item.language)) {
                 count++;
             }
         }
@@ -41,12 +41,12 @@ public class TrendingReposMapper {
     }
 
     private List<Integer> mapIdsByLanguage(String language, TrendingReposDTO trendingRepos) {
-        List<ItemDTO> itemDTOS = trendingRepos.itemDTOS;
+        List<Item> items = trendingRepos.items;
         List<Integer> Ids = new ArrayList<>();
-        for (ItemDTO itemDTO
-                : itemDTOS) {
-            if (language.equals(itemDTO.language)) {
-                Ids.add(itemDTO.id);
+        for (Item item
+                : items) {
+            if (language.equals(item.language)) {
+                Ids.add(item.id);
             }
         }
         return Ids;

@@ -13,11 +13,11 @@ class TrendingReposMapperTest {
 
     @Test
     void map_WhenGettingTrendingReposDTO_ThenMapItsDataToLanguagesTrendingReposDTO() {
-        List<ItemDTO> itemDTOS = new ArrayList<>();
-        itemDTOS.add(new ItemDTO(1234, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "C",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
-        itemDTOS.add(new ItemDTO(124, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "C",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
-        itemDTOS.add(new ItemDTO(134, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "Java",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
-        TrendingReposDTO trendingReposDTO = new TrendingReposDTO(39, false, itemDTOS);
+        List<Item> items = new ArrayList<>();
+        items.add(new Item(1234, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "C",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
+        items.add(new Item(124, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "C",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
+        items.add(new Item(134, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "Java",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
+        TrendingReposDTO trendingReposDTO = new TrendingReposDTO(39, false, items);
         List<LanguageTrendingReposDTO> trendingReposResponses = new ArrayList<>();
         List<Integer> ids1 = new ArrayList<>();
         ids1.add(1234);

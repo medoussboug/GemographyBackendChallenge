@@ -1,6 +1,6 @@
 package com.example.mybackendproject.Domain;
 
-public class OwnerDTO {
+public class Owner {
     public final String login;
     public final Integer id;
     public final String node_id;
@@ -20,7 +20,7 @@ public class OwnerDTO {
     public final String type;
     public final Boolean site_admin;
 
-    public OwnerDTO(String login, Integer id, String node_id, String avatar_url, String gravatar_id, String url, String html_url, String followers_url, String following_url, String gists_url, String starred_url, String subscriptions_url, String organizations_url, String repos_url, String events_url, String received_events_url, String type, Boolean site_admin) {
+    public Owner(String login, Integer id, String node_id, String avatar_url, String gravatar_id, String url, String html_url, String followers_url, String following_url, String gists_url, String starred_url, String subscriptions_url, String organizations_url, String repos_url, String events_url, String received_events_url, String type, Boolean site_admin) {
         this.login = login;
         this.id = id;
         this.node_id = node_id;
