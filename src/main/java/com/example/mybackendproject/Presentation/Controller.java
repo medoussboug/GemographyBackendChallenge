@@ -1,5 +1,6 @@
 package com.example.mybackendproject.Presentation;
 
+import com.example.mybackendproject.Domain.TrendingReposDTO;
 import com.example.mybackendproject.Domain.TrendingReposService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ public class Controller {
     TrendingReposService trendingReposService;
 
     @GetMapping("/repositories/languages")
-    public String test() {
-        return trendingReposService.performRequest();
+    public TrendingReposDTO test() {
+        return trendingReposService.mapDTO();
     }
 }

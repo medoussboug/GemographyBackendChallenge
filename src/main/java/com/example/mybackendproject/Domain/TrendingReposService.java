@@ -1,5 +1,6 @@
 package com.example.mybackendproject.Domain;
 
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,11 @@ public class TrendingReposService {
         this.client = client;
     }
 
-    public String performRequest() {
+    public TrendingReposDTO mapDTO() {
+        Gson gson = new Gson();
+        return gson.fromJson(performRequest(), TrendingReposDTO.class);
+    }
+    private String performRequest() {
         return client.performRequest();
     }
 }
