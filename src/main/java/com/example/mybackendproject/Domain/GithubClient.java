@@ -1,5 +1,6 @@
 package com.example.mybackendproject.Domain;
 
+import com.google.gson.Gson;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -19,7 +20,17 @@ public class GithubClient {
         httpRequest = HttpRequest.newBuilder(URI.create("https://api.github.com/search/repositories?q=created:%3E" + LocalDate.now().minusDays(30) + "&per_page=100&sort=stars&order=desc")).build();
     }
 
-    public String performRequest() {
+    public GithubClient(HttpClient httpClient) {
+        this.httpClient = httpClient;
+        httpRequest = HttpRequest.newBuilder(URI.create("https://api.github.com/search/repositories?q=created:%3E" + LocalDate.now().minusDays(30) + "&per_page=100&sort=stars&order=desc")).build();
+    }
+
+    TrendingReposDTO getTrendingReposDTO() {
+        Gson gson = new Gson();
+        return gson.fromJson(performRequest(), TrendingReposDTO.class);
+    }
+
+    private String performRequest() {
         try {
             return httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString()).body();
         } catch (IOException e) {
