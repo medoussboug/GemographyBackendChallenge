@@ -4,12 +4,12 @@ import java.util.List;
 
 public class LanguageTrendingReposDTO {
     public final String name;
-    public final Integer time_used;
+    public final Integer numberOfUsage;
     public final List<Integer> repos;
 
-    public LanguageTrendingReposDTO(String name, Integer time_used, List<Integer> repos) {
+    public LanguageTrendingReposDTO(String name, Integer numberOfUsage, List<Integer> repos) {
         this.name = name;
-        this.time_used = time_used;
+        this.numberOfUsage = numberOfUsage;
         this.repos = repos;
     }
 }

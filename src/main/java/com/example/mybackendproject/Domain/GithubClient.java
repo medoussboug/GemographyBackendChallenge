@@ -14,6 +14,8 @@ import java.time.LocalDate;
 public class GithubClient {
     private HttpClient httpClient;
     private HttpRequest httpRequest;
+    private Gson gson = new Gson();
+    private HttpResponse<String> httpResponse;
 
     public GithubClient() {
         httpClient = HttpClient.newHttpClient();
@@ -25,24 +27,25 @@ public class GithubClient {
         this.httpRequest = httpRequest;
     }
 
-    public GithubClient(HttpClient httpClient) {
+    public GithubClient(HttpClient httpClient, HttpRequest httpRequest, HttpResponse<String> httpResponse) {
         this.httpClient = httpClient;
-        httpRequest = HttpRequest.newBuilder(URI.create("https://api.github.com/search/repositories?q=created:%3E" + LocalDate.now().minusDays(30) + "&per_page=100&sort=stars&order=desc")).build();
+        this.httpRequest = httpRequest;
+        this.httpResponse = httpResponse;
     }
 
     TrendingReposDTO getTrendingReposDTO() {
-        Gson gson = new Gson();
-        return gson.fromJson(performRequest(), TrendingReposDTO.class);
+        httpResponse =  performRequest();
+        return gson.fromJson(httpResponse.body(), TrendingReposDTO.class);
     }
 
-    private String performRequest() {
+    private HttpResponse<String> performRequest() {
         try {
-            return httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString()).body();
+            return httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "error when performing the request";
+        return null;
     }
 }

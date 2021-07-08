@@ -14,7 +14,7 @@ public class Item {
     public final Owner owner;
     public final String html_url;
     public final String description;
-    public final boolean fork;
+    public final Boolean fork;
     public final String url;
     public final String forks_url;
     public final String keys_url;
