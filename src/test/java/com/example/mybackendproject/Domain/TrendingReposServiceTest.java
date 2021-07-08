@@ -16,7 +16,7 @@ class TrendingReposServiceTest {
     private TrendingReposService trendingReposService = new TrendingReposService(client, trendingReposMapper);
 
     @Test
-    void getLanguagesTrendingReposDTO_WhenGithubRequestSucceed_ThenMapResponseToLanguagesTrendingReposDTO() {
+    void mapLanguagesTrendingReposDTO_WhenGithubRequestSucceed_ThenMapResponseToLanguagesTrendingReposDTO() {
         List<Item> items = new ArrayList<>();
         items.add(new Item(3800, null,null,null,null,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "AutoIt",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
         TrendingReposDTO trendingReposDTO = new TrendingReposDTO(21, false, items);
@@ -27,7 +27,7 @@ class TrendingReposServiceTest {
         languageTrendingReposDTOS.add(new LanguageTrendingReposDTO("AutoIt", 1, id));
         LanguagesTrendingReposDTO languagesTrendingReposDTOExpected = new LanguagesTrendingReposDTO(languageTrendingReposDTOS);
         when(trendingReposMapper.map(trendingReposDTO)).thenReturn(languagesTrendingReposDTOExpected);
-        LanguagesTrendingReposDTO languagesTrendingReposDTOActual = trendingReposService.getLanguagesTrendingReposDTO();
+        LanguagesTrendingReposDTO languagesTrendingReposDTOActual = trendingReposService.mapLanguagesTrendingReposDTO();
         assertEquals(languagesTrendingReposDTOExpected.languageTrendingReposDTOS.get(0).repos, languagesTrendingReposDTOActual.languageTrendingReposDTOS.get(0).repos);
     }
 }

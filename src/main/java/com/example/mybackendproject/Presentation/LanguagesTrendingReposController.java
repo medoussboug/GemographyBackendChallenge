@@ -7,13 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Controller {
+public class LanguagesTrendingReposController {
 
     @Autowired
     TrendingReposService trendingReposService;
 
+    public LanguagesTrendingReposController(TrendingReposService trendingReposService) {
+        this.trendingReposService = trendingReposService;
+    }
+
     @GetMapping("/repositories/languages")
-    public LanguagesTrendingReposDTO test() {
-        return trendingReposService.getLanguagesTrendingReposDTO();
+    public LanguagesTrendingReposDTO getLanguagesTrendingReposDTO() {
+        return trendingReposService.mapLanguagesTrendingReposDTO();
     }
 }

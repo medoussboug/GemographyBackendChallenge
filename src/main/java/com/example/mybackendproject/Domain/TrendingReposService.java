@@ -16,7 +16,7 @@ public class TrendingReposService {
         this.trendingReposMapper = trendingReposMapper;
     }
 
-    public LanguagesTrendingReposDTO getLanguagesTrendingReposDTO() {
+    public LanguagesTrendingReposDTO mapLanguagesTrendingReposDTO() {
         TrendingReposDTO reposList = client.getTrendingReposDTO();
         return trendingReposMapper.map(reposList);
     }
