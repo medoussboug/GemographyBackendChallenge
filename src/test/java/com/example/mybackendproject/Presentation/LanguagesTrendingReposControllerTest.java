@@ -12,7 +12,7 @@ class LanguagesTrendingReposControllerTest {
     private LanguagesTrendingReposController controller = new LanguagesTrendingReposController(trendingReposService);
 
     @Test
-    void getLanguagesTrendingReposDTO_When_ThenReturnLanguagesTrendingReposDTO() {
+    void getLanguagesTrendingReposDTO_invoketrendingReposService() {
         controller.getLanguagesTrendingReposDTO();
         verify(trendingReposService).mapLanguagesTrendingReposDTO();
     }

@@ -12,9 +12,9 @@ public class TrendingReposMapper {
 
     LanguagesTrendingReposDTO map(TrendingReposDTO trendingRepos) {
         List<String> trendingReposLanguages = getTrendingReposLanguages(trendingRepos);
-        List<LanguageTrendingReposDTO> trendingReposResponseDTOS = new ArrayList<>();
+        List<LanguagesTrendingReposDTO.LanguageTrendingReposDTO> trendingReposResponseDTOS = new ArrayList<>();
         for (String trendingReposLanguage : trendingReposLanguages) {
-            trendingReposResponseDTOS.add(new LanguageTrendingReposDTO(trendingReposLanguage, this.calculateNumberOfUsageOfLanguage(trendingReposLanguage, trendingRepos), this.mapIdsByLanguage(trendingReposLanguage, trendingRepos)));
+            trendingReposResponseDTOS.add(new LanguagesTrendingReposDTO.LanguageTrendingReposDTO(trendingReposLanguage, this.calculateNumberOfUsageOfLanguage(trendingReposLanguage, trendingRepos), this.mapIdsByLanguage(trendingReposLanguage, trendingRepos)));
         }
         return new LanguagesTrendingReposDTO(trendingReposResponseDTOS);
     }
@@ -30,9 +30,8 @@ public class TrendingReposMapper {
 
     private Integer calculateNumberOfUsageOfLanguage(String language, TrendingReposDTO trendingRepos) {
         int count = 0;
-        List<Item> items = trendingRepos.items;
-        for (Item item
-                : items) {
+        List<TrendingReposDTO.Item> items = trendingRepos.items;
+        for (TrendingReposDTO.Item item : items) {
             if (language.equals(item.language)) {
                 count++;
             }
@@ -41,10 +40,9 @@ public class TrendingReposMapper {
     }
 
     private List<Integer> mapIdsByLanguage(String language, TrendingReposDTO trendingRepos) {
-        List<Item> items = trendingRepos.items;
+        List<TrendingReposDTO.Item> items = trendingRepos.items;
         List<Integer> Ids = new ArrayList<>();
-        for (Item item
-                : items) {
+        for (TrendingReposDTO.Item item : items) {
             if (language.equals(item.language)) {
                 Ids.add(item.id);
             }

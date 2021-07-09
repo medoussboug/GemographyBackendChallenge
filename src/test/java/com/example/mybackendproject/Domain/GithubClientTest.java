@@ -1,7 +1,6 @@
 package com.example.mybackendproject.Domain;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -19,11 +18,11 @@ class GithubClientTest {
     HttpClient httpClient = mock(HttpClient.class);
     HttpRequest httpRequest;
     HttpResponse httpResponse = mock(HttpResponse.class);
-    GithubClient githubClient = new GithubClient(httpClient, httpRequest, httpResponse);
+    GithubClient githubClient = new GithubClient(httpClient, httpRequest);
 
 
     @Test
-    void getTrendingReposDTO_WhenGithubRequestSucceed_ThenMapResponseDataToTrendingReposDTO() throws IOException, InterruptedException {
+    void getTrendingReposDTO_whenGithubRequestSucceed_thenMapResponseDataToTrendingReposDTO() throws IOException, InterruptedException {
         when(httpClient.send(eq(httpRequest), any())).thenReturn(httpResponse);
         when(httpResponse.body()).thenReturn("{\"total_count\":12345,\"incomplete_results\":false,\"items\":null}");
         TrendingReposDTO trendingReposDTO = githubClient.getTrendingReposDTO();
