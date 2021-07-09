@@ -16,9 +16,9 @@ class TrendingReposServiceTest {
     private TrendingReposService trendingReposService = new TrendingReposService(client, trendingReposMapper);
 
     @Test
-    void mapLanguagesTrendingReposDTO_WhenGithubRequestSucceed_ThenMapResponseToLanguagesTrendingReposDTO() {
+    void mapLanguagesTrendingReposDTO_whenGithubRequestSucceed_thenMapResponseToLanguagesTrendingReposDTO() {
         List<TrendingReposDTO.Item> items = new ArrayList<>();
-        items.add(new TrendingReposDTO.Item(3800, null,null,null,null,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "AutoIt",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
+        items.add(new TrendingReposDTO.Item(1234, "AutoIt"));
         TrendingReposDTO trendingReposDTO = new TrendingReposDTO(21, false, items);
         when(client.getTrendingReposDTO()).thenReturn(trendingReposDTO);
         List<Integer> id = new ArrayList<>();

@@ -14,9 +14,9 @@ class TrendingReposMapperTest {
     @Test
     void map_WhenGettingTrendingReposDTO_ThenMapDataToLanguagesTrendingReposDTO() {
         List<TrendingReposDTO.Item> items = new ArrayList<>();
-        items.add(new TrendingReposDTO.Item(1234, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "C",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
-        items.add(new TrendingReposDTO.Item(124, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "C",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
-        items.add(new TrendingReposDTO.Item(134, null,null,null,false,null,null,null,false,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null, "Java",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null));
+        items.add(new TrendingReposDTO.Item(1234, "C"));
+        items.add(new TrendingReposDTO.Item(124, "C"));
+        items.add(new TrendingReposDTO.Item(134, "Java"));
         TrendingReposDTO trendingReposDTO = new TrendingReposDTO(39, false, items);
         List<LanguagesTrendingReposDTO.LanguageTrendingReposDTO> trendingReposResponses = new ArrayList<>();
         List<Integer> ids1 = new ArrayList<>();

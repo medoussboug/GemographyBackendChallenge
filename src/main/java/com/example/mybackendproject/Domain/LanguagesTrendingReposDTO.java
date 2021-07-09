@@ -10,12 +10,12 @@ public class LanguagesTrendingReposDTO {
     }
 
     public static class LanguageTrendingReposDTO {
-        public final String name;
+        public final String language;
         public final Integer numberOfUsage;
         public final List<Integer> repos;
 
-        public LanguageTrendingReposDTO(String name, Integer numberOfUsage, List<Integer> repos) {
-            this.name = name;
+        public LanguageTrendingReposDTO(String language, Integer numberOfUsage, List<Integer> repos) {
+            this.language = language;
             this.numberOfUsage = numberOfUsage;
             this.repos = repos;
         }
