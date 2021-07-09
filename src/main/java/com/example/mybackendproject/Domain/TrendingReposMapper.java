@@ -14,7 +14,7 @@ public class TrendingReposMapper {
         List<String> trendingReposLanguages = getTrendingReposLanguages(trendingRepos);
         List<LanguagesTrendingReposDTO.LanguageTrendingReposDTO> trendingReposResponseDTOS = new ArrayList<>();
         for (String trendingReposLanguage : trendingReposLanguages) {
-            trendingReposResponseDTOS.add(new LanguagesTrendingReposDTO.LanguageTrendingReposDTO(trendingReposLanguage, this.calculateNumberOfUsageOfLanguage(trendingReposLanguage, trendingRepos), this.mapIdsByLanguage(trendingReposLanguage, trendingRepos)));
+            trendingReposResponseDTOS.add(new LanguagesTrendingReposDTO.LanguageTrendingReposDTO(trendingReposLanguage, calculateNumberOfUsageOfLanguage(trendingReposLanguage, trendingRepos), mapIdsByLanguage(trendingReposLanguage, trendingRepos)));
         }
         return new LanguagesTrendingReposDTO(trendingReposResponseDTOS);
     }

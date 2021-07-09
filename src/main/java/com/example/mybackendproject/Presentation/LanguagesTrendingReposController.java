@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LanguagesTrendingReposController {
 
     @Autowired
-    TrendingReposService trendingReposService;
+    private final TrendingReposService trendingReposService;
 
     public LanguagesTrendingReposController(TrendingReposService trendingReposService) {
         this.trendingReposService = trendingReposService;

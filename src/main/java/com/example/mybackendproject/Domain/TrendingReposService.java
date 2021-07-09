@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class TrendingReposService {
 
-    private GithubClient client;
-    private TrendingReposMapper trendingReposMapper;
+    private final GithubClient client;
+    private final TrendingReposMapper trendingReposMapper;
 
     @Autowired
     public TrendingReposService(GithubClient client, TrendingReposMapper trendingReposMapper) {
@@ -16,7 +16,7 @@ public class TrendingReposService {
     }
 
     public LanguagesTrendingReposDTO mapLanguagesTrendingReposDTO() {
-        TrendingReposDTO reposList = client.getTrendingReposDTO();
+        TrendingReposDTO reposList = client.getTrendingRepos();
         return trendingReposMapper.map(reposList);
     }
 }

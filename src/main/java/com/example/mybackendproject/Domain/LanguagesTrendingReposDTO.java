@@ -3,10 +3,10 @@ package com.example.mybackendproject.Domain;
 import java.util.List;
 
 public class LanguagesTrendingReposDTO {
-    public final List<LanguageTrendingReposDTO> languageTrendingReposDTOS;
+    public final List<LanguageTrendingReposDTO> languageTrendingReposDTOs;
 
-    public LanguagesTrendingReposDTO(List<LanguageTrendingReposDTO> languageTrendingReposDTOS) {
-        this.languageTrendingReposDTOS = languageTrendingReposDTOS;
+    public LanguagesTrendingReposDTO(List<LanguageTrendingReposDTO> languageTrendingReposDTOs) {
+        this.languageTrendingReposDTOs = languageTrendingReposDTOs;
     }
 
     public static class LanguageTrendingReposDTO {

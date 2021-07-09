@@ -28,6 +28,6 @@ class TrendingReposMapperTest {
         trendingReposResponses.add(new LanguagesTrendingReposDTO.LanguageTrendingReposDTO("Java", 1, ids2));
         LanguagesTrendingReposDTO trendingReposResponsesExpected = new LanguagesTrendingReposDTO(trendingReposResponses);
         LanguagesTrendingReposDTO trendingReposResponsesActual = trendingReposMapper.map(trendingReposDTO);
-        assertEquals(trendingReposResponsesExpected.languageTrendingReposDTOS.get(1).repos, trendingReposResponsesActual.languageTrendingReposDTOS.get(0).repos);
+        assertEquals(trendingReposResponsesExpected.languageTrendingReposDTOs.get(1).repos, trendingReposResponsesActual.languageTrendingReposDTOs.get(0).repos);
     }
 }

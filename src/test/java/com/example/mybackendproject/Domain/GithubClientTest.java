@@ -15,17 +15,17 @@ import static org.mockito.Mockito.when;
 
 class GithubClientTest {
 
-    HttpClient httpClient = mock(HttpClient.class);
-    HttpRequest httpRequest;
-    HttpResponse httpResponse = mock(HttpResponse.class);
-    GithubClient githubClient = new GithubClient(httpClient, httpRequest);
+    private HttpClient httpClient = mock(HttpClient.class);
+    private HttpRequest httpRequest;
+    private HttpResponse httpResponse = mock(HttpResponse.class);
+    private GithubClient githubClient = new GithubClient(httpClient, httpRequest);
 
 
     @Test
-    void getTrendingReposDTO_whenGithubRequestSucceed_thenMapResponseDataToTrendingReposDTO() throws IOException, InterruptedException {
+    void getTrendingRepos_whenGithubRequestSucceed_thenMapResponseDataToTrendingReposDTO() throws IOException, InterruptedException {
         when(httpClient.send(eq(httpRequest), any())).thenReturn(httpResponse);
         when(httpResponse.body()).thenReturn("{\"total_count\":12345,\"incomplete_results\":false,\"items\":null}");
-        TrendingReposDTO trendingReposDTO = githubClient.getTrendingReposDTO();
-        assertEquals(trendingReposDTO.total_count, 12345);
+        TrendingReposDTO trendingReposDTO = githubClient.getTrendingRepos();
+        assertEquals(trendingReposDTO.totalCount, 12345);
     }
 }
