@@ -12,30 +12,29 @@ import java.time.LocalDate;
 
 @Component
 public class GithubClient {
+    private static final LocalDate THIRTY_DAY = LocalDate.now().minusDays(30);
+    private static final String URL = "https://api.github.com/search/repositories?q=created:%3E" + THIRTY_DAY + "&per_page=100&sort=stars&order=desc";
     private HttpClient httpClient;
     private HttpRequest httpRequest;
     private Gson gson = new Gson();
-    private HttpResponse<String> httpResponse;
 
-    public GithubClient() {
+    GithubClient() {
         httpClient = HttpClient.newHttpClient();
-        httpRequest = HttpRequest.newBuilder(URI.create("https://api.github.com/search/repositories?q=created:%3E" + LocalDate.now().minusDays(30) + "&per_page=100&sort=stars&order=desc")).build();
+        httpRequest = HttpRequest.newBuilder(URI.create(URL)).build();
     }
 
-    public GithubClient(HttpClient httpClient, HttpRequest httpRequest, HttpResponse<String> httpResponse) {
+    GithubClient(HttpClient httpClient, HttpRequest httpRequest) {
         this.httpClient = httpClient;
         this.httpRequest = httpRequest;
-        this.httpResponse = httpResponse;
     }
 
     TrendingReposDTO getTrendingReposDTO() {
-        httpResponse =  performRequest();
-        return gson.fromJson(httpResponse.body(), TrendingReposDTO.class);
+        return gson.fromJson(performRequest(), TrendingReposDTO.class);
     }
 
-    private HttpResponse<String> performRequest() {
+    private String performRequest() {
         try {
-            return httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            return httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString()).body();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
