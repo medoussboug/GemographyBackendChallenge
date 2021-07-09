@@ -3,13 +3,13 @@ package com.example.mybackendproject.Domain;
 import java.util.List;
 
 public class TrendingReposDTO {
-    public final Integer total_count;
-    public final Boolean incomplete_results;
+    public final Integer totalCount;
+    public final Boolean incompleteResults;
     public final List<Item> items;
 
-    public TrendingReposDTO(Integer total_count, Boolean incomplete_results, List<Item> items) {
-        this.total_count = total_count;
-        this.incomplete_results = incomplete_results;
+    public TrendingReposDTO(Integer totalCount, Boolean incompleteResults, List<Item> items) {
+        this.totalCount = totalCount;
+        this.incompleteResults = incompleteResults;
         this.items = items;
     }
 

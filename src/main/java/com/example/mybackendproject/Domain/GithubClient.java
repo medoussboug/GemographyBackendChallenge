@@ -1,6 +1,8 @@
 package com.example.mybackendproject.Domain;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -14,9 +16,11 @@ import java.time.LocalDate;
 public class GithubClient {
     private static final LocalDate THIRTY_DAY = LocalDate.now().minusDays(30);
     private static final String URL = "https://api.github.com/search/repositories?q=created:%3E" + THIRTY_DAY + "&per_page=100&sort=stars&order=desc";
-    private HttpClient httpClient;
-    private HttpRequest httpRequest;
-    private Gson gson = new Gson();
+    private final HttpClient httpClient;
+    private final HttpRequest httpRequest;
+    private final Gson gson = new GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create();
 
     GithubClient() {
         httpClient = HttpClient.newHttpClient();
@@ -28,7 +32,7 @@ public class GithubClient {
         this.httpRequest = httpRequest;
     }
 
-    TrendingReposDTO getTrendingReposDTO() {
+    TrendingReposDTO getTrendingRepos() {
         return gson.fromJson(performRequest(), TrendingReposDTO.class);
     }
 
