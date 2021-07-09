@@ -11,7 +11,7 @@ The response to our endpoint GET	/repositories/languages/
 
 # Technologies:
 
-SpringBoot
+SpringBoot, 
 JUnit5
 
 # ScreenShot :
