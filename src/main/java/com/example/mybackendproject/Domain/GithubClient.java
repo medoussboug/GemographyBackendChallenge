@@ -22,11 +22,6 @@ public class GithubClient {
         httpRequest = HttpRequest.newBuilder(URI.create("https://api.github.com/search/repositories?q=created:%3E" + LocalDate.now().minusDays(30) + "&per_page=100&sort=stars&order=desc")).build();
     }
 
-    public GithubClient(HttpClient httpClient, HttpRequest httpRequest) {
-        this.httpClient = httpClient;
-        this.httpRequest = httpRequest;
-    }
-
     public GithubClient(HttpClient httpClient, HttpRequest httpRequest, HttpResponse<String> httpResponse) {
         this.httpClient = httpClient;
         this.httpRequest = httpRequest;
